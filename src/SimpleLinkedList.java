@@ -19,8 +19,10 @@ public class SimpleLinkedList {
 
     }
     public String removeFromHead(){
-        head = head.getTail();
-        head.setNext(null);
+        Node temp = new Node(head.getTail().getValue());
+        temp.setTail(head.getTail().getTail());
+        head.getTail().getTail().setNext(temp);
+        head = temp;
         return head.getValue();
     }
 
@@ -41,6 +43,24 @@ public class SimpleLinkedList {
         }
         return null;
     }
+
+    public Node get(int index){
+        Node temp = head;
+        int i = 0;
+        while(temp.getTail() != null) {
+            temp = temp.getTail();
+        }
+
+        while(temp.getNext() != null){
+            if(i == index)
+                return temp;
+
+            temp = temp.getNext();
+            i++;
+        }
+     return (new Node(null));
+    }
+
     public String toString(){
         ArrayList<String> str = new ArrayList<>();
         Node temp = head;

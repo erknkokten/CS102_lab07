@@ -37,8 +37,8 @@ public class Node {
         return next;
     }
     public String toString(){
-        return "Node value: " + getValue() + "\n" +
-                "Next node value: " + getNext().getValue() + "\n" +
-                "Tail node value: " + getTail().getValue() ;
+        if (this != null)
+            return "Node value: " + getValue();
+        return "Node value: " + null;
     }
 }

@@ -18,5 +18,7 @@ public class TestSimpleLinkedList {
         System.out.println(simpleLinkedList.toString());
         System.out.println(simpleLinkedList.get("Hi3"));
         System.out.println(simpleLinkedList.isEmpty());
+
+        System.out.println(simpleLinkedList.get(5).toString());
     }
 }
