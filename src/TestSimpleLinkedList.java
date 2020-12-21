@@ -13,12 +13,21 @@ public class TestSimpleLinkedList {
         simpleLinkedList.addToTail("Hi2");
         simpleLinkedList.addToTail("Hi3");
         simpleLinkedList.addToTail("Hi4");
-        System.out.println(simpleLinkedList.toString());
-        simpleLinkedList.removeFromHead();
+
         System.out.println(simpleLinkedList.toString());
         System.out.println(simpleLinkedList.get("Hi3"));
+        System.out.println(simpleLinkedList.get(0).toString());
+        System.out.println(simpleLinkedList.toString());
         System.out.println(simpleLinkedList.isEmpty());
 
-        System.out.println(simpleLinkedList.get(5).toString());
+        while(!simpleLinkedList.isEmpty()){
+            simpleLinkedList.removeFromHead();
+            System.out.println(simpleLinkedList.toString());
+            System.out.println(simpleLinkedList.isEmpty());
+        }
+
+
+
+
     }
 }

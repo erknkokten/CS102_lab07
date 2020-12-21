@@ -19,11 +19,31 @@ public class SimpleLinkedList {
 
     }
     public String removeFromHead(){
-        Node temp = new Node(head.getTail().getValue());
-        temp.setTail(head.getTail().getTail());
-        head.getTail().getTail().setNext(temp);
-        head = temp;
-        return head.getValue();
+        String str;
+
+        if(head.getTail()!= null) {
+            str = head.getTail().getValue();
+            Node temp = new Node(head.getTail().getValue());
+            if(head.getTail().getTail()!= null){
+                temp.setTail(head.getTail().getTail());
+                Node node;
+                node = head.getTail().getTail();
+                head = temp;
+                node.setNext(head);
+                return str;
+            }
+            else {
+                head.setTail(new Node(null));
+                head.setNext(new Node(null));
+                head.setValue(temp.getValue());
+                head = temp;
+                return str;
+            }
+        }
+        else
+            str = "";
+            head = new Node(null);
+            return str;
     }
 
     public boolean isEmpty(){
@@ -33,7 +53,7 @@ public class SimpleLinkedList {
     }
     public Node get(String data){
         Node temp = head;
-        while(temp.getTail() != null) {
+        while(temp.getTail() != null && temp.getValue() != null) {
 
             if(temp.getValue().equals(data))
                 return temp;
